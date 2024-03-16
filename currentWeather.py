@@ -39,7 +39,7 @@ class weatherAPICall:
         cityAndStateList  = self.cityAndState.replace(', ', ' ').split()
         cityAndStateDict = {'city':cityAndStateList[0], 'state':cityAndStateList[1]}
         location = geolocator.geocode(cityAndStateDict)
-        if not isinstance(location, None):
+        if location is not None:
             return location.latitude, location.longitude
         else:
             raise RuntimeError(f'Error getting the latitude and longitude of {cityAndState}')
