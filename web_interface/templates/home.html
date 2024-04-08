@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1 style="text-align: center">Weather</h1>
+<p style="text-align: center">
+    Current temp in {{cityAndState}}: {{temp}}{{tempUnit}}
+</p>
+
+<form action="/home" method="POST">
+  <label for="city">City</label><br>
+  <input type="text" id="city" name="city"><br>
+  <label for="state">State</label><br>
+  <input type="text" id="state" name="state"><br>
+  <input type="submit" value="Search">
+</form>
+{% endblock %}

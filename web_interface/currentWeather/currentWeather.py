@@ -36,9 +36,7 @@ class weatherAPICall:
     def getLatLon(self):
         # Initialize Photon API
         geolocator = Photon(user_agent="MyApp")
-        cityAndStateList  = self.cityAndState.replace(', ', ' ').split()
-        cityAndStateDict = {'city':cityAndStateList[0], 'state':cityAndStateList[1]}
-        location = geolocator.geocode(cityAndStateDict)
+        location = geolocator.geocode(self.cityAndState)
         if location is not None:
             return location.latitude, location.longitude
         else:
